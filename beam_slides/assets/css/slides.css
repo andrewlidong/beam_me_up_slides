@@ -1,39 +1,329 @@
+/* Purple Neon Beam & Babyish Theme */
+:root {
+    --neon-purple: #b026ff;
+    --neon-pink: #ff26e9;
+    --neon-blue: #26c4ff;
+    --dark-purple: #2a0e38;
+    --light-purple: #e7c6ff;
+    --soft-yellow: #fff8c6;
+}
+
+body {
+    background-color: var(--dark-purple);
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 .slide-container {
-    height: 100vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle at center, var(--dark-purple) 0%, #140920 100%);
+    padding: 0.8rem;
+    box-sizing: border-box;
+    margin: auto 0; /* Help with vertical centering */
 }
 
 .slide {
-    width: 80%;
-    height: 80%;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(42, 14, 56, 0.7);
+    border-radius: 24px;
+    box-shadow: 
+        0 0 15px var(--neon-purple),
+        0 0 30px rgba(176, 38, 255, 0.5);
+    padding: 1.2rem;
     display: flex;
     flex-direction: column;
+    border: 3px solid var(--neon-purple);
+    position: relative;
+    overflow: auto; /* Allow scrolling if content overflows */
+    box-sizing: border-box;
+    margin: auto 0; /* Help with vertical centering */
+}
+
+/* Speaker Notes */
+.speaker-notes {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    border: 2px dashed var(--neon-pink);
+    box-shadow: 0 0 15px rgba(255, 38, 233, 0.4);
+    padding: 0.8rem;
+    margin-top: 1rem;
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 1rem;
+    color: var(--light-purple);
+}
+
+.speaker-notes h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.speaker-notes p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+    font-family: 'Arial', sans-serif; /* More readable font for notes */
+}
+
+/* Presenter mode toggle button */
+.presenter-toggle {
+    background-color: var(--dark-purple);
+    position: relative;
+    color: white;
+    font-size: 0.8rem;
+    border: 1px solid var(--neon-pink);
+}
+
+.presenter-toggle.active {
+    background-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.slide::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+    filter: blur(20px);
+    background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink), var(--neon-blue));
+    opacity: 0.3;
+    animation: glow 3s ease-in-out infinite alternate;
 }
 
 .slide h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--soft-yellow);
+    text-shadow: 
+        0 0 5px var(--neon-purple), 
+        0 0 10px var(--neon-purple),
+        0 0 20px var(--neon-blue);
+    letter-spacing: 1px;
+    text-align: center;
 }
 
 .content {
-    font-size: 2rem;
+    font-size: 1.6rem;
     flex-grow: 1;
+    color: var(--light-purple);
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 8px var(--neon-blue);
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    display: flex;
+    flex-direction: column;
+    /* Better vertical alignment */
+    justify-content: flex-start;
+    max-height: calc(100% - 4rem); /* Ensure there's room for the heading */
+}
+
+.content p {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
 }
 
 .controls {
-    margin-top: 1rem;
+    margin-top: 0.7rem;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
+    justify-content: center;
+}
+
+.controls button {
+    background-color: var(--dark-purple);
+    color: white;
+    border: 2px solid var(--neon-purple);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 0 8px var(--neon-purple);
+    transition: all 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: var(--neon-purple);
+    transform: scale(1.05);
+    box-shadow: 0 0 12px var(--neon-purple), 0 0 20px var(--neon-pink);
 }
 
 .slide-number {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink);
+    padding: 0.3rem 0.7rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px dashed var(--neon-blue);
+}
+
+/* Bullets and lists */
+.slide ul {
+    list-style-type: none;
+    margin: 0.4rem 0;
+    padding: 0;
+}
+
+.slide li {
+    margin-bottom: 0.6rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.slide li::before {
+    content: "✨";
+    position: absolute;
+    left: 0;
+    color: var(--neon-pink);
+}
+
+/* Code blocks */
+.slide pre {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 0.7rem;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 8px rgba(38, 196, 255, 0.5);
+    max-height: 40%;
+    overflow-y: auto;
+}
+
+.slide code {
+    font-family: 'Courier New', monospace;
+    color: var(--neon-blue);
+    font-size: 1.1rem;
+}
+
+/* Images */
+.slide img {
+    max-width: 70%;
+    max-height: 50%;
+    margin: 0.5rem auto;
+    display: block;
+    border-radius: 12px;
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 15px rgba(176, 38, 255, 0.6);
+}
+
+/* Animations */
+@keyframes glow {
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+/* Title slide special styling */
+.slide.title-slide .content {
+    font-size: 2.2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: var(--soft-yellow);
+    text-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Media queries for better responsiveness */
+@media (max-height: 700px) {
+    .slide h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .content {
+        font-size: 1.3rem;
+        padding: 0.8rem;
+    }
+    
+    .slide li {
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .slide.title-slide .content {
+        font-size: 1.8rem;
+    }
+}
+
+/* For very small screens */
+@media (max-height: 500px) {
+    .slide h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .content {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+    
+    .slide li {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .controls {
+        margin-top: 0.4rem;
+    }
+}
+
+/* Code blocks with neon style */
+.code-block {
+  margin: 1rem 0;
+  position: relative;
+}
+
+.code-block pre {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 0;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 
+    inset 0 0 10px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(38, 196, 255, 0.7);
+  overflow-x: auto;
+  position: relative;
+}
+
+.code-block code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  color: var(--neon-blue);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-shadow: 0 0 2px var(--neon-blue);
+}
+
+/* Add highlighting for strings in code */
+.code-block .string, 
+.code-block code .string {
+  color: var(--neon-pink);
+  text-shadow: 0 0 2px var(--neon-pink);
 }
