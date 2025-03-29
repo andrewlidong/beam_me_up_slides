@@ -1,0 +1,39 @@
+.slide-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.content {
+    font-size: 2rem;
+    flex-grow: 1;
+}
+
+.controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.slide-number {
+    font-size: 1.2rem;
+}
