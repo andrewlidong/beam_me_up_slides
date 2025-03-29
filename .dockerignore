@@ -1,0 +1,57 @@
+# flyctl launch added from beam_slides/.gitignore
+# The directory Mix will write compiled artifacts to.
+beam_slides/_build
+
+# If you run "mix test --cover", coverage assets end up here.
+beam_slides/cover
+
+# The directory Mix downloads your dependencies sources to.
+beam_slides/deps
+
+# Where 3rd-party dependencies like ExDoc output generated docs.
+beam_slides/doc
+
+# Ignore .fetch files in case you like to edit your project deps locally.
+beam_slides/.fetch
+
+# If the VM crashes, it generates a dump, let's ignore it too.
+beam_slides/**/erl_crash.dump
+
+# Also ignore archive artifacts (built via "mix archive.build").
+beam_slides/**/*.ez
+
+# Temporary files, for example, from tests.
+beam_slides/tmp
+
+# Ignore package tarball (built via "mix hex.build").
+beam_slides/**/beam_slides-*.tar
+
+# Ignore assets that are produced by build tools.
+beam_slides/priv/static/assets
+
+# Ignore digested assets cache.
+beam_slides/priv/static/cache_manifest.json
+
+# In case you use Node.js/npm, you want to ignore these.
+beam_slides/**/npm-debug.log
+beam_slides/assets/node_modules
+
+# Database files
+beam_slides/**/*.db
+beam_slides/**/*.sqlite
+beam_slides/**/*.sqlite3
+
+# Environment variables
+beam_slides/**/.env
+beam_slides/**/.env.*
+
+# Elixir LS
+beam_slides/**/.elixir_ls
+
+# Editor/IDE specific files
+beam_slides/**/.idea
+beam_slides/**/.vscode
+beam_slides/**/*.swp
+beam_slides/**/*.swo
+beam_slides/**/*~
+fly.toml
