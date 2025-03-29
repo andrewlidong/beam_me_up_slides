@@ -9,11 +9,7 @@ defmodule BeamSlides.Application do
   def start(_type, _args) do
     children = [
       BeamSlidesWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:beam_slides, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: BeamSlides.PubSub},
-      # Start the Finch HTTP client for sending emails
-      {Finch, name: BeamSlides.Finch},
-      # Start to serve requests, typically the last entry
       BeamSlidesWeb.Endpoint
     ]
 
