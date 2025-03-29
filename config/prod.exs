@@ -5,13 +5,17 @@ import Config
 
 # Configure your database
 config :beam_slides, BeamSlidesWeb.Endpoint,
-  url: [host: System.get_env("PHX_HOST") || "localhost", port: 80],
+  url: [host: "localhost", port: 4000],
   http: [
     port: String.to_integer(System.get_env("PORT") || "4000"),
     transport_options: [socket_opts: [:inet6]]
   ],
-  secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  server: true
+  secret_key_base: "dummy_key_for_slides_only",
+  server: true,
+  check_origin: false,
+  code_reloader: false,
+  debug_errors: false,
+  static_url: "/"
 
 # Do not print debug messages in production
 config :logger, level: :info
